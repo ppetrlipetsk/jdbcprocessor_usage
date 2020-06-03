@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ppsdevelopment</groupId>
+    <artifactId>jdbcprocessor_usage</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.release>14</maven.compiler.release>
+        <github.global.server>github</github.global.server>
+        <github.maven-plugin>0.12</github.maven-plugin>
+    </properties>
+
+<!--    <properties>-->
+<!--        <maven.compiler.release>5</maven.compiler.release>-->
+<!--        <github.global.server>github</github.global.server>-->
+<!--        <github.maven-plugin>0.12</github.maven-plugin>-->
+<!--    </properties>-->
+    <build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>2.8.2</version>
+            <configuration>
+                <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ppsdevelopment</groupId>
+            <artifactId>com.ppsdevelopment.mylib</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ppsdevelopment</groupId>
+            <artifactId>com.ppsdevelopment.jdbcprocessor</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.2.0.jre11</version>
+            <scope>runtime</scope>
+        </dependency>
+
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>com.ppetrlipetsk</id>
+            <url>https://raw.github.com/ppetrlipetsk/jdbcprocessor/mvn-repo/</url>
+        </repository>
+    </repositories>
+
+
+</project>
